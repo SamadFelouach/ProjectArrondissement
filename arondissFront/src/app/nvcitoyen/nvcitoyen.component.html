@@ -1,0 +1,34 @@
+<div class="container mt-6">
+
+  <div class="row col-md-10">
+    <div class="panel panel-default">
+      <div class="panel-heading">Nouveau Citoyen</div>
+      <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="Onajoutecitoyen(f.value)">
+
+          <div class="form-group">
+            <label class="control-label">Name :</label>
+            <input class="form-control" type="text" name="name" ngModel="" required/>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Prenom :</label>
+            <input class="form-control" type="text" name="prenom" ngModel="" required/>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label"> CIN :</label>
+            <input class="form-control" type="text" name="cin" ngModel="" required/>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Code:</label>
+            <input class="form-control" type="text" name="code" ngModel="" required/>
+          </div>
+          <button class="btn btn-danger" type="submit" [disabled]="!f.value">Ajouter</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

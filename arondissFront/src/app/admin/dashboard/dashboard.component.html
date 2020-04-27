@@ -1,0 +1,53 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a>Dash </a></li>
+      <li class="btn btn-primary" (click)="gestionusers()" *ngIf="authenticationService.isAdmin()"> Gestion Des
+        Citoyens
+      </li>
+      <li> Gestion Des articles</li>
+      <li><a href=""></a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <button class="btn btn-danger" (click)="Onlogout()"><span class="glyphicon glyphicon-log-out"></span>logout
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div>
+  <p></p>
+
+  <li class="btn btn-success" (click)="newCitoyen()" *ngIf="authenticationService.isAdmin()"> Ajouter Cit</li>
+
+
+  <table class="table">
+    <caption>List of users</caption>
+    <thead>
+    <tr>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">CIN</th>
+      <th scope="col">CODE</th>
+      <th *ngIf="authenticationService.isAdmin()">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of citoyens._embedded.citoyens">
+
+      <td>{{c.name}}</td>
+      <td>{{c.prenom}}</td>
+      <td>{{c.cin}}</td>
+      <td>{{c.code}}</td>
+      <button class="btn btn-primary" *ngIf="authenticationService.isAdmin()">Modifer</button>
+      <button class="btn btn-danger" *ngIf="authenticationService.isAdmin()">Supprimer</button>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
